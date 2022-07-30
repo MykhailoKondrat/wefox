@@ -26,7 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:cypress": "npx cypress open"
+    "test:cypress": "npx cypress open",
+    "generateApi": "npx @rtk-query/codegen-openapi ./src/config/api-config.json"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@rtk-query/codegen-openapi": "^1.0.0-alpha.1",
     "cypress": "^10.3.1"
   }
 }

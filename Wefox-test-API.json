@@ -1,0 +1,249 @@
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "vtubw8v7vdk7p"
+  },
+  "info": {
+    "title": "Wefox test API",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1/"
+    }
+  ],
+  "paths": {
+    "posts/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "number"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "put": {
+        "summary": "Update post",
+        "operationId": "update-post-by-id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "title": "string",
+                    "content": "string",
+                    "lat": "string",
+                    "long": "string",
+                    "image_url": "string"
+                  }
+                },
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "lat": {
+                    "type": "string"
+                  },
+                  "long": {
+                    "type": "string"
+                  },
+                  "image_url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "title",
+                  "content"
+                ]
+              }
+            }
+          }
+        },
+        "description": "update post by id",
+        "tags": [
+          "post"
+        ]
+      },
+      "delete": {
+        "summary": "Delete post",
+        "operationId": "delete-post-by-id",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "description": "delete post by id",
+        "tags": [
+          "post"
+        ]
+      }
+    },
+    "posts/": {
+      "post": {
+        "summary": "Create New Post",
+        "operationId": "post-new-post",
+        "responses": {
+          "201": {
+            "description": "Location Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post"
+                },
+                "examples": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Missing Required Information"
+          },
+          "409": {
+            "description": "Email Already Taken"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "title": "string",
+                    "content": "string",
+                    "lat": "string",
+                    "long": "string",
+                    "image_url": "string"
+                  }
+                },
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "lat": {
+                    "type": "string"
+                  },
+                  "long": {
+                    "type": "string"
+                  },
+                  "image_url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "title",
+                  "content"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "description": ""
+        },
+        "description": "Create a new post.",
+        "tags": [
+          "post"
+        ]
+      },
+      "parameters": [],
+      "get": {
+        "summary": "Gel all posts",
+        "operationId": "get-all-posts",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Post"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "get all posts",
+        "tags": [
+          "post"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Post": {
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "title": "Madrid",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "lat": "40.41678",
+            "long": "-3.70379",
+            "image_url": "https://c2.staticflickr.com/2/1269/4670777817_d657cd9819_b.jpg"
+          }
+        },
+        "title": "Post",
+        "examples": [],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "lat": {
+            "type": "string"
+          },
+          "long": {
+            "type": "string"
+          },
+          "image_url": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "content",
+          "id"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "post"
+    }
+  ]
+}

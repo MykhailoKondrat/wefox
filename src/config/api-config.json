@@ -1,0 +1,9 @@
+ {
+  "schemaFile": "../../Wefox-test-API.json",
+  "apiFile": "../../src/api/apiSlice.ts",
+  "apiImport": "emptySplitApi",
+  "outputFile": "../../src/api/generated/postsApi.ts",
+  "exportName": "postsApi",
+  "hooks": true
+}
+
