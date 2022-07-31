@@ -8,14 +8,16 @@ import {
   Typography,
 } from "@mui/material";
 import {FC} from 'react';
+import {ToggleManagePost} from '../../features/ManagePost/hooks/useManagePost';
 
 export interface PostItemProps  {
   title:string;
   description:string;
   image?:string;
+  toggleEditMode: ToggleManagePost
 }
 
-export const PostItem: FC<PostItemProps> = ({title, image,description}) => (
+export const PostItem: FC<PostItemProps> = ({title, image,description,toggleEditMode}) => (
   <Box mb={2} pb={1}>
     <Card>
       <CardMedia
@@ -33,7 +35,7 @@ export const PostItem: FC<PostItemProps> = ({title, image,description}) => (
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Edit</Button>
+        <Button size="small" onClick={()=>{ toggleEditMode() }}>Edit</Button>
         <Button size="small">Delete</Button>
       </CardActions>
     </Card>

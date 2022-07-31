@@ -1,18 +1,26 @@
-import {
-  ImageList,
-} from "@mui/material";
-import PostItem from '../PostItem';
-import {FC} from 'react';
-import {Post} from '../../api/generated/postsApi';
+import { ImageList } from "@mui/material";
+import PostItem from "../PostItem";
+import { FC } from "react";
+import { Post } from "../../api/generated/postsApi";
+import { useManagePost } from "../../features/ManagePost/hooks/useManagePost";
 
 interface PostsListProps {
-  posts: Array<Post>
+  posts: Array<Post>;
 }
-export const PostsList:FC<PostsListProps> = ({ posts }) => {
+export const PostsList: FC<PostsListProps> = ({ posts }) => {
+  const { handleToggleManagePost } = useManagePost();
+
   return (
-    <ImageList variant="masonry" cols={3} gap={8} component={'div'}>
+    <ImageList variant="masonry" cols={3} gap={8} component={"div"}>
       {posts.map((post) => (
-      <PostItem title={post.title} description={post.content} image={post.image_url}/>
+        <PostItem
+          title={post.title}
+          description={post.content}
+          image={post.image_url}
+          toggleEditMode={() => {
+            handleToggleManagePost({ postIdToUpdate: post.id });
+          }}
+        />
       ))}
     </ImageList>
   );
