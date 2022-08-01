@@ -15,8 +15,8 @@ export const PostsList: FC<PostsListProps> = ({ posts }) => {
       {posts.map((post) => (
         <PostItem
           title={post.title}
-          description={post.content}
-          image={post.image_url}
+          content={post.content}
+          image_url={post.image_url}
           toggleEditMode={() => {
             handleToggleManagePost({ postIdToUpdate: post.id });
           }}
