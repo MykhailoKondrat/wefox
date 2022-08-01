@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type ManagePostPayload = number | undefined
 
-interface ManagePostInitialState {
+export interface ManagePostInitialState {
   isManagePostOpen: boolean;
   postIdToUpdate: number | null;
 }
