@@ -9,30 +9,36 @@ import {
 } from "@mui/material";
 import { Close } from "@mui/icons-material";
 import { useManagePost } from "./hooks/useManagePost";
-import {FormValues, ManagePostForm} from '../../components/ManagePostForm';
-import {useGetPostsQuery, usePostPostsMutation} from '../../api';
-import Transition from '../../components/Transition';
-
+import { FormValues, ManagePostForm } from "../../components/ManagePostForm";
+import {
+  useGetPostsQuery,
+  usePostPostsMutation,
+  usePutPostsByIdMutation,
+} from "../../api";
+import Transition from "../../components/Transition";
 
 export const ManagePost: FC = () => {
-
   const { handleToggleManagePost, isManagePostOpen, postIdToUpdate } =
     useManagePost();
 
-  const { defaultFormValues } = useGetPostsQuery(undefined,{
+  const { defaultFormValues } = useGetPostsQuery(undefined, {
     selectFromResult: ({ data }) => ({
-      defaultFormValues: data?.find( post => post.id === postIdToUpdate )
+      defaultFormValues: data?.find((post) => post.id === postIdToUpdate),
     }),
   });
-  const [createPost] = usePostPostsMutation()
-
+  const [createPost] = usePostPostsMutation();
+  const [updatePost] = usePutPostsByIdMutation();
   const handleClose = () => {
     handleToggleManagePost();
   };
-  const handleManagePostForm =(values:FormValues) => {
-   if(!postIdToUpdate){  createPost({ body:{ ...values } }) }
+  const handleManagePostForm = (values: FormValues) => {
+    if (postIdToUpdate) {
+      updatePost({ body:values,id:postIdToUpdate  });
+    } else {
+      createPost({ body: values });
+    }
     handleClose();
-  }
+  };
 
   return (
     <div>
@@ -57,8 +63,16 @@ export const ManagePost: FC = () => {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Box display={"flex"} justifyContent={"center"} width={'80%'} mx={'auto'}>
-          <ManagePostForm defaultValues={defaultFormValues} onFormSubmit={handleManagePostForm}/>
+        <Box
+          display={"flex"}
+          justifyContent={"center"}
+          width={"80%"}
+          mx={"auto"}
+        >
+          <ManagePostForm
+            defaultValues={defaultFormValues}
+            onFormSubmit={handleManagePostForm}
+          />
         </Box>
       </Dialog>
     </div>

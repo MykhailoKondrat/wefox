@@ -1,6 +1,6 @@
 import {postsApi} from './generated/postsApi';
 
-export const enhancedGeneratedApi = postsApi.enhanceEndpoints({
+export const index = postsApi.enhanceEndpoints({
   addTagTypes: ["Posts"],
   endpoints: {
     getPosts: { providesTags: ["Posts"] },
@@ -15,4 +15,4 @@ export const {
   useDeletePostsByIdMutation,
   usePostPostsMutation,
   useGetPostsQuery,
-} = enhancedGeneratedApi;
+} = index;
