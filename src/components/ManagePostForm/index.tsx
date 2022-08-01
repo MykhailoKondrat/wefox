@@ -35,12 +35,18 @@ export const ManagePostForm: FC<ManagePostFormProps> = ({
         "& .MuiTextField-root": { mb: 2 },
       }}
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form data-cy="manage-post-form" onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="title"
           control={control}
           render={({ field }) => (
-            <TextField label={"Title"} required fullWidth {...field} />
+            <TextField
+              label={"Title"}
+              required
+              fullWidth
+              data-cy="title-input"
+              {...field}
+            />
           )}
         />
         <Controller
@@ -50,6 +56,7 @@ export const ManagePostForm: FC<ManagePostFormProps> = ({
             <TextField
               maxRows={5}
               label="Content"
+              data-cy="content-input"
               required
               fullWidth
               multiline
@@ -61,24 +68,46 @@ export const ManagePostForm: FC<ManagePostFormProps> = ({
           name="image_url"
           control={control}
           render={({ field }) => (
-            <TextField fullWidth label="Image URL" {...field} />
+            <TextField
+              fullWidth
+              label="Image URL"
+              data-cy="image-url-input"
+              {...field}
+            />
           )}
         />
         <Controller
           name="lat"
           control={control}
           render={({ field }) => (
-            <TextField fullWidth type="number" label="Latitude" {...field} />
+            <TextField
+              fullWidth
+              type="number"
+              label="Latitude"
+              data-cy="lat-input"
+              {...field}
+            />
           )}
         />
         <Controller
           name="long"
           control={control}
           render={({ field }) => (
-            <TextField fullWidth type="number" label="Longitude" {...field} />
+            <TextField
+              fullWidth
+              type="number"
+              label="Longitude"
+              data-cy="long-input"
+              {...field}
+            />
           )}
         />
-        <Button fullWidth variant="contained" type={"submit"}>
+        <Button
+          fullWidth
+          variant="contained"
+          data-cy="submit-button"
+          type={"submit"}
+        >
           Save
         </Button>
       </form>

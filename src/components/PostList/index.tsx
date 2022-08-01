@@ -17,6 +17,7 @@ export const PostsList: FC<PostsListProps> = ({ posts }) => {
     <ImageList variant="masonry" cols={matchDownMd ? 1 : 2 } gap={8} component={"div"}>
       {posts.map((post) => (
         <PostItem
+          key={post.id}
           title={post.title}
           content={post.content}
           image_url={post.image_url}

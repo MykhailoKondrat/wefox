@@ -30,7 +30,7 @@ export const PostItem: FC<PostItemProps> = ({
   lat,
   long,
 }) => (
-  <Box mb={2} pb={1}>
+  <Box mb={2} pb={1} data-cy={"post-item"}>
     <Card>
       {image_url && (
         <CardMedia
@@ -63,6 +63,7 @@ export const PostItem: FC<PostItemProps> = ({
       <CardActions>
         <Button
           size="small"
+          data-cy={'edit-button'}
           onClick={() => {
             toggleEditMode();
           }}
@@ -70,6 +71,7 @@ export const PostItem: FC<PostItemProps> = ({
           Edit
         </Button>
         <Button
+          data-cy={'delete-button'}
           variant="outlined" color="error"
           size="small"
           onClick={() => {

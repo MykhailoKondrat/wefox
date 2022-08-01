@@ -55,6 +55,7 @@ export const ManagePost: FC = () => {
               color="inherit"
               onClick={handleClose}
               aria-label="close"
+              data-cy="close-overlay-button"
             >
               <Close />
             </IconButton>

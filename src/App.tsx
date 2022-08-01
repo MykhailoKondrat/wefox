@@ -15,6 +15,7 @@ function App() {
   return (
     <Container>
       <Button
+        data-cy="add-post-button"
         variant="contained"
         onClick={handleAddButtonClick}
         startIcon={<PostAdd />}
