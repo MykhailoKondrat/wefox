@@ -1,6 +1,6 @@
 import { FC } from "react";
 import PostsList from "../../components/PostList";
-import { useGetPostsQuery } from "../../api/generated/postsApi";
+import { useGetPostsQuery } from "../../api";
 import { Alert, CircularProgress } from "@mui/material";
 
 export const Posts: FC = () => {

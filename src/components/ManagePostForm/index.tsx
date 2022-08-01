@@ -2,16 +2,18 @@ import { Box, Button, TextField } from "@mui/material";
 import React, { FC } from "react";
 import {Controller, SubmitHandler, useForm} from 'react-hook-form';
 import { PostItemProps } from "../PostItem";
-type FormDefaultValues = Omit<PostItemProps, "toggleEditMode">
+
+export type FormValues = Omit<PostItemProps, "toggleEditMode">
+
 interface ManagePostFormProps {
-  defaultValues?: FormDefaultValues;
-  onFormSubmit?: () => void;
+  defaultValues?: FormValues;
+  onFormSubmit: (values:FormValues) => void;
 }
 export const ManagePostForm: FC<ManagePostFormProps> = ({
   defaultValues,
   onFormSubmit,
 }) => {
-  const { control, handleSubmit } = useForm<FormDefaultValues>({
+  const { control, handleSubmit } = useForm<FormValues>({
     defaultValues: {
       title: defaultValues?.title ?? "",
       content: defaultValues?.content ?? "",
@@ -20,9 +22,9 @@ export const ManagePostForm: FC<ManagePostFormProps> = ({
       long: defaultValues?.long ?? "",
     },
   });
-  const onSubmit: SubmitHandler<FormDefaultValues> = (values, e) => {
+  const onSubmit: SubmitHandler<FormValues> = (values, e) => {
     e?.preventDefault();
-    console.log(values);
+    onFormSubmit(values)
   };
 
   return (

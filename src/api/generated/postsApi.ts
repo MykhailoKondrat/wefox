@@ -65,9 +65,3 @@ export type Post = {
   updated_at?: string;
   created_at?: string;
 };
-export const {
-  usePutPostsByIdMutation,
-  useDeletePostsByIdMutation,
-  usePostPostsMutation,
-  useGetPostsQuery,
-} = injectedRtkApi;

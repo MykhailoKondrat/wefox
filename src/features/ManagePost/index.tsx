@@ -9,8 +9,8 @@ import {
 } from "@mui/material";
 import { Close } from "@mui/icons-material";
 import { useManagePost } from "./hooks/useManagePost";
-import {ManagePostForm} from '../../components/ManagePostForm';
-import {useGetPostsQuery} from '../../api/generated/postsApi';
+import {FormValues, ManagePostForm} from '../../components/ManagePostForm';
+import {useGetPostsQuery, usePostPostsMutation} from '../../api';
 import Transition from '../../components/Transition';
 
 
@@ -24,22 +24,22 @@ export const ManagePost: FC = () => {
       defaultFormValues: data?.find( post => post.id === postIdToUpdate )
     }),
   });
-  console.log(defaultFormValues)
+  const [createPost] = usePostPostsMutation()
 
   const handleClose = () => {
     handleToggleManagePost();
   };
-  const handleSaveAndClose = () => {
-    handleToggleManagePost();
-  };
-
+  const handleManagePostForm =(values:FormValues) => {
+   if(!postIdToUpdate){  createPost({ body:{ ...values } }) }
+    handleClose();
+  }
 
   return (
     <div>
       <Dialog
         fullScreen
         open={isManagePostOpen}
-        onClose={() => handleToggleManagePost()}
+        onClose={handleClose}
         TransitionComponent={Transition}
       >
         <AppBar sx={{ position: "relative" }}>
@@ -58,7 +58,7 @@ export const ManagePost: FC = () => {
           </Toolbar>
         </AppBar>
         <Box display={"flex"} justifyContent={"center"} width={'80%'} mx={'auto'}>
-          <ManagePostForm defaultValues={defaultFormValues}/>
+          <ManagePostForm defaultValues={defaultFormValues} onFormSubmit={handleManagePostForm}/>
         </Box>
       </Dialog>
     </div>
