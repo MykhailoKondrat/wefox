@@ -5,6 +5,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Stack,
   Typography,
 } from "@mui/material";
 import { FC } from "react";
@@ -26,14 +27,35 @@ export const PostItem: FC<PostItemProps> = ({
   content,
   toggleEditMode,
   deletePost,
+  lat,
+  long,
 }) => (
   <Box mb={2} pb={1}>
     <Card>
-      <CardMedia component="img" alt={title} height="auto" image={image_url} />
+      {image_url && (
+        <CardMedia
+          component="img"
+          alt={title}
+          height="auto"
+          image={image_url}
+        />
+      )}
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
+        {lat && long && (
+          <Stack direction={'row'} spacing={4} mb={2}>
+            <Stack  direction={'row'} justifyContent={"flex-start"}>
+              <Typography variant={"caption"} color={'text.secondary'}>Lat: </Typography>
+              <Typography variant={"body2"}> {lat}</Typography>
+            </Stack>
+            <Stack direction={'row'} justifyContent={"flex-start"}>
+              <Typography variant={"caption"} color={'text.secondary'}>Long: </Typography>
+              <Typography variant={"body2"}> {long}</Typography>
+            </Stack>
+          </Stack>
+        )}
         <Typography variant="body2" color="text.secondary">
           {content}
         </Typography>

@@ -21,6 +21,8 @@ export const PostsList: FC<PostsListProps> = ({ posts }) => {
           toggleEditMode={() => {
             handleToggleManagePost({ postIdToUpdate: post.id });
           }}
+          lat={post.lat}
+          long={post.long}
           deletePost={() => {deletePost({id:post.id})}}
         />
       ))}
