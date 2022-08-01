@@ -45,7 +45,7 @@ export const PostItem: FC<PostItemProps> = ({
           {title}
         </Typography>
         {lat && long && (
-          <Stack direction={'row'} spacing={4} mb={2}>
+          <Stack overflow={'scroll'} direction={'row'} spacing={4} mb={2}>
             <Stack  direction={'row'} justifyContent={"flex-start"}>
               <Typography variant={"caption"} color={'text.secondary'}>Lat: </Typography>
               <Typography variant={"body2"}> {lat}</Typography>
@@ -70,6 +70,7 @@ export const PostItem: FC<PostItemProps> = ({
           Edit
         </Button>
         <Button
+          variant="outlined" color="error"
           size="small"
           onClick={() => {
             deletePost();

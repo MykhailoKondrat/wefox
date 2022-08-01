@@ -1,13 +1,13 @@
 import { Box, Button, TextField } from "@mui/material";
 import React, { FC } from "react";
-import {Controller, SubmitHandler, useForm} from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { PostItemProps } from "../PostItem";
 
-export type FormValues = Omit<PostItemProps, "toggleEditMode" | "deletePost">
+export type FormValues = Omit<PostItemProps, "toggleEditMode" | "deletePost">;
 
 interface ManagePostFormProps {
   defaultValues?: FormValues;
-  onFormSubmit: (values:FormValues) => void;
+  onFormSubmit: (values: FormValues) => void;
 }
 export const ManagePostForm: FC<ManagePostFormProps> = ({
   defaultValues,
@@ -24,7 +24,7 @@ export const ManagePostForm: FC<ManagePostFormProps> = ({
   });
   const onSubmit: SubmitHandler<FormValues> = (values, e) => {
     e?.preventDefault();
-    onFormSubmit(values)
+    onFormSubmit(values);
   };
 
   return (
@@ -35,14 +35,12 @@ export const ManagePostForm: FC<ManagePostFormProps> = ({
         "& .MuiTextField-root": { mb: 2 },
       }}
     >
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-      >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="title"
           control={control}
           render={({ field }) => (
-            <TextField  label={"Title"} required fullWidth {...field} />
+            <TextField label={"Title"} required fullWidth {...field} />
           )}
         />
         <Controller
@@ -70,14 +68,14 @@ export const ManagePostForm: FC<ManagePostFormProps> = ({
           name="lat"
           control={control}
           render={({ field }) => (
-            <TextField fullWidth label="Latitude" {...field} />
+            <TextField fullWidth type="number" label="Latitude" {...field} />
           )}
         />
         <Controller
           name="long"
           control={control}
           render={({ field }) => (
-            <TextField fullWidth label="Longitude" {...field} />
+            <TextField fullWidth type="number" label="Longitude" {...field} />
           )}
         />
         <Button fullWidth variant="contained" type={"submit"}>
