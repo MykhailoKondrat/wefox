@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components / PostItem should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root css-mngfkd"
+    data-cy="post-item"
+  >
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-bhp9pd-MuiPaper-root-MuiCard-root"
+    >
+      <img
+        alt="test"
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-o69gx8-MuiCardMedia-root"
+        height="auto"
+        src="image-url"
+      />
+      <div
+        class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+      >
+        <div
+          class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
+        >
+          test
+        </div>
+        <div
+          class="css-zfsi42-MuiStack-root"
+        >
+          <div
+            class="css-1gi1ppv-MuiStack-root"
+          >
+            <span
+              class="MuiTypography-root MuiTypography-caption css-ol7wxs-MuiTypography-root"
+            >
+              Lat: 
+            </span>
+            <p
+              class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
+            >
+               123
+            </p>
+          </div>
+          <div
+            class="css-1gi1ppv-MuiStack-root"
+          >
+            <span
+              class="MuiTypography-root MuiTypography-caption css-ol7wxs-MuiTypography-root"
+            >
+              Long: 
+            </span>
+            <p
+              class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
+            >
+               123
+            </p>
+          </div>
+        </div>
+        <p
+          class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+        >
+          test
+        </p>
+      </div>
+      <div
+        class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
+      >
+        <button
+          class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonBase-root  css-1knaqv7-MuiButtonBase-root-MuiButton-root"
+          data-cy="edit-button"
+          tabindex="0"
+          type="button"
+        >
+          Edit
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          class="MuiButton-root MuiButton-outlined MuiButton-outlinedError MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButtonBase-root  css-1ir7th6-MuiButtonBase-root-MuiButton-root"
+          data-cy="delete-button"
+          tabindex="0"
+          type="button"
+        >
+          Delete
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
