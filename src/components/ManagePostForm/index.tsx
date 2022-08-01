@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import {Controller, SubmitHandler, useForm} from 'react-hook-form';
 import { PostItemProps } from "../PostItem";
 
-export type FormValues = Omit<PostItemProps, "toggleEditMode">
+export type FormValues = Omit<PostItemProps, "toggleEditMode" | "deletePost">
 
 interface ManagePostFormProps {
   defaultValues?: FormValues;
