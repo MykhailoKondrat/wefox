@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# Hey Wefox! 
+The project is based on RTK Query library. 
+It has smoke e2e tests and unit tests for some crucial parts like reducer and PostItem component.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+## Server Base URL
+Could be configured from .env file, default values are 
+ > REACT_APP_DEV_BASE_URL="http://localhost:3000/api/v1/"
+ > REACT_APP_PRD_BASE_URL="http://localhost:3000/api/v1/"
 
 ## Available Scripts
 
@@ -9,10 +14,16 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+### `npm run generateApi`
+Generates a RTK-query slice based on .json API Schema. 
+
+### `npm run test:cypress`
+Opens e2e test suite. You don't need to have server running as it uses local mocks.
 
 ### `npm test`
 

@@ -4,7 +4,10 @@ import { useGetPostsQuery } from "../../api";
 import {Alert, Box, CircularProgress} from '@mui/material';
 
 export const Posts: FC = () => {
-  const { data, isLoading } = useGetPostsQuery();
+  const { data, isLoading, error } = useGetPostsQuery();
+  if(error){
+    return <Alert severity="error" >Something went wrong, connection to server. </Alert>;
+  }
   if (data && data?.length === 0)
     return <Alert severity="info" data-cy="no-posts-info"> No Posts Found</Alert>;
 
